@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * There's a list of file, since two files cannot have equal names,
@@ -17,22 +17,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function renameFiles(names) {
   const checked = {};
-    const result = [];
-    names.map((name) => {
-
-      if(!checked[name]) {
-        checked[name] = 1;
-        result.push(name);
-      } else {
-        let checkedName = `${name}(${checked[name]})`;
-        result.push(checkedName);
-        checked[checkedName] = 1;
-        checked[name] += 1;
-      }
-    })
-    return result;
+  const result = [];
+  names.map((name) => {
+    if (!checked[name]) {
+      checked[name] = 1;
+      result.push(name);
+    } else {
+      let checkedName = `${name}(${checked[name]})`;
+      result.push(checkedName);
+      checked[checkedName] = 1;
+      checked[name] += 1;
+    }
+  });
+  return result;
 }
 
 module.exports = {
-  renameFiles
+  renameFiles,
 };
